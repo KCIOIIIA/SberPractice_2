@@ -11,6 +11,11 @@ public class Pet {
         this.status = status;
         this.photosList = photosList;
     }
+
+    @Override
+    public String toString() {
+        return "Cat{ name = " + name;
+    }
 }
 enum Status {
     AVAILABLE, SOLD,
@@ -29,3 +34,4 @@ class Photo {
         return URL;
     }
 }
+
