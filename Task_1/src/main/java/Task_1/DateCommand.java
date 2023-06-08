@@ -6,9 +6,12 @@ import java.util.Date;
 public class DateCommand implements Command{
         @Override
         public boolean exec(String[] arr) {
-            Date date = new Date();
-            SimpleDateFormat formater = new SimpleDateFormat("HH:mm:ss");
-            System.out.println(formater.format(date));
+            if (arr.length == 1){
+                Date date = new Date();
+                SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+                System.out.println(formater.format(date));
+            }
+            else {help();}
             return true;
         }
 

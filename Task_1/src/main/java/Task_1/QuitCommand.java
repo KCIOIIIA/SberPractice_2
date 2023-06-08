@@ -3,7 +3,13 @@ package Task_1;
 public class QuitCommand implements Command {
     @Override
     public boolean exec(String[] arr) {
-        return false;
+        if (arr.length == 1) {
+            System.out.println("Встречена команда ВЫХОД");
+            return false;
+        } else {
+            help();
+            return true;
+        }
     }
 
     @Override
