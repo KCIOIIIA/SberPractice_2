@@ -1,7 +1,6 @@
 package Task_2;
 
 import java.lang.reflect.Field;
-
 public class ConvertorUtils {
     public static Animal mapToProductDto(Pet pet) throws IllegalAccessException {
         // Для Pet
@@ -11,7 +10,6 @@ public class ConvertorUtils {
         Animal animal = new Animal();
         Class cz = animal.getClass();
         Field[] fs = cz.getDeclaredFields();
-
         for(Field field : fields) {
             System.out.println("Имя поля: " + field.getName() + "    тип: " + field.getType());    //получить список полей Pet
             field.setAccessible(true);              //открыть приватные поля Pet
@@ -21,7 +19,7 @@ public class ConvertorUtils {
                 fs[0].set(animal, value);               //поместить в Animal title значение value
                 fs[0].setAccessible(false);             //закрыть приватные поля Animal
             } else if (field.getName().equals("status")){
-                if (value.equals("AVAILABLE")) {
+                if (value.equals(Status.AVAILABLE)) {
                     fs[1].setAccessible(true);              //открыть приватные поля Animal
                     fs[1].set(animal, true);               //поместить в Animal isAvailable значение true
                     fs[1].setAccessible(false);             //закрыть приватные поля Animal
