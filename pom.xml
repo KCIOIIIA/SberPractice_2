@@ -12,6 +12,8 @@
         <module>Task_1</module>
         <module>Task_2</module>
         <module>Task_3</module>
+        <module>Task_4</module>
+        <module>Task_3_0</module>
     </modules>
     <properties>
         <maven.compiler.source>19.0.1</maven.compiler.source>
