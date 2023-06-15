@@ -1,0 +1,13 @@
+package Task_5;
+
+public class Track {
+    public String Name;
+    public String Id;
+    public String Duration;
+
+    public Track(String Name, String Id, String Duration){
+        this.Name = Name;
+        this.Id = Id;
+        this.Duration = Duration;
+    }
+}
