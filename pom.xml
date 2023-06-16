@@ -15,9 +15,43 @@
         <module>Task_4</module>
     </modules>
     <properties>
-        <maven.compiler.source>19.0.1</maven.compiler.source>
-        <maven.compiler.target>19.0.1</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <tomcat-version>8.0.36</tomcat-version>
     </properties>
 
 
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-logging-juli</artifactId>
+                <version>${tomcat-version}</version>
+            </dependency>
+        </dependencies>
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.2.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>java</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+
+                    <configuration>
+                        <mainClass>Task_3.Start</mainClass>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
 </project>

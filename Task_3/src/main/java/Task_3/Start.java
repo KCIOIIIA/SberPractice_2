@@ -10,8 +10,8 @@ public class Start {
 
         Context ctx = tomcat.addContext("", null);
 
-        //Tomcat.addServlet(ctx, "time", new TimeServlet());
-        //ctx.addServletMapping("/time", "time");
+        Tomcat.addServlet(ctx, "time", new TimeServlet());
+        ctx.addServletMapping("/time", "time");
 
         tomcat.start();
         tomcat.getServer().await();
