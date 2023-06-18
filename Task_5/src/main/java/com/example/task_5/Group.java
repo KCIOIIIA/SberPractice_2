@@ -1,6 +1,5 @@
-package Task_5;
+package com.example.task_5;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
@@ -12,5 +11,15 @@ public class Group {
         this.Name = Name;
         this.Id = Id;
         this.albums = albums;
+    }
+
+    public String getName() {
+        return Name;
+    }
+    public String getId() {
+        return Id;
+    }
+    public List<Album> getAlbums() {
+        return albums;
     }
 }

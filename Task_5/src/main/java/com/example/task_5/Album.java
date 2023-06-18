@@ -1,4 +1,4 @@
-package Task_5;
+package com.example.task_5;
 
 import java.util.List;
 
@@ -14,4 +14,18 @@ public class Album {
         this.Year = Year;
         this.tracks = tracks;
     }
+
+    public String getName() {
+        return Name;
+    }
+    public String getId() {
+        return Id;
+    }
+    public String getYear() {
+        return Year;
+    }
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
 }

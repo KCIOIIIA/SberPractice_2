@@ -1,4 +1,4 @@
-package Task_5;
+package com.example.task_5;
 
 public class Track {
     public String Name;
@@ -10,4 +10,15 @@ public class Track {
         this.Id = Id;
         this.Duration = Duration;
     }
+
+    public String getName() {
+        return Name;
+    }
+    public String getId() {
+        return Id;
+    }
+    public String getDuration() {
+        return Duration;
+    }
+
 }
