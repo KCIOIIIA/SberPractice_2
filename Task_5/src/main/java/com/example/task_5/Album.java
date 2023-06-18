@@ -15,17 +15,17 @@ public class Album {
         this.tracks = tracks;
     }
 
-    public String getName() {
-        return Name;
-    }
-    public String getId() {
-        return Id;
-    }
-    public String getYear() {
-        return Year;
-    }
-    public List<Track> getTracks() {
-        return tracks;
-    }
+ //   public String getName() {
+ //       return Name;
+//   }
+ //   public String getId() {
+ //       return Id;
+ //   }
+ //   public String getYear() {
+ //       return Year;
+ //   }
+ //   public List<Track> getTracks() {
+  //      return tracks;
+  //  }
 
 }

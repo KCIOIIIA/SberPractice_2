@@ -6,8 +6,6 @@ import com.example.task_5.Track;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +37,9 @@ public class MusicController {
         return "groups";
     }
 
-    @RequestMapping(value = "/groups/${group.id}/albums")
-    public String albumsController(Model model) {
-        return "albums";
-    }
+    // @RequestMapping(value = "/groups/${group.id}/albums")
+   // public String albumsController(Model model) {
+  //      return "albums";
+  //  }
 
 }

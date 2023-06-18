@@ -11,14 +11,14 @@ public class Track {
         this.Duration = Duration;
     }
 
-    public String getName() {
-        return Name;
-    }
-    public String getId() {
-        return Id;
-    }
-    public String getDuration() {
-        return Duration;
-    }
+  //  public String getName() {
+  //      return Name;
+  //  }
+ //   public String getId() {
+  //      return Id;
+  //  }
+  //  public String getDuration() {
+  //      return Duration;
+  //  }
 
 }

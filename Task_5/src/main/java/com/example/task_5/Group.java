@@ -13,13 +13,13 @@ public class Group {
         this.albums = albums;
     }
 
-    public String getName() {
-        return Name;
-    }
-    public String getId() {
-        return Id;
-    }
-    public List<Album> getAlbums() {
-        return albums;
-    }
+  //  public String getName() {
+  //      return Name;
+  //  }
+ //   public String getId() {
+  //      return Id;
+  //  }
+  //  public List<Album> getAlbums() {
+  //      return albums;
+  //  }
 }
