@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <title>Main page</title>
     <style>
-        body {background-color: #FBF8E3}
+        body {background-color: #E1D6E7}
     </style>
 </head>
 <body>
 <h2 align="center">Choose a group</h2>
-<tr th: each = "group : ${groups}">
-    <td>
-        <a href="/groups/${group.id}"><span th:text="${group.id}"></span></a>
-    </td>
-    <td>
-        <span th:text="${group.name}"></span>
-    </td>
-</tr>
 </body>
 </html>
