@@ -1,4 +1,6 @@
-package com.example.task_5;
+package com.example;
+
+import com.example.Album;
 
 import java.util.List;
 

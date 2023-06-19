@@ -6,13 +6,5 @@
 </head>
 <body>
 <h2 align="center">Choose a album</h2>
-<tr th: each = "group : ${groups}">
-    <td>
-        <a href="/groups/${group.id}/albums"><span th:text="${group.id}"></span></a>
-    </td>
-    <td>
-        <span th:text="${group.name}"></span>
-    </td>
-</tr>
 </body>
 </html>

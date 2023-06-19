@@ -1,4 +1,4 @@
-package com.example.task_5;
+package com.example;
 
 import java.util.List;
 

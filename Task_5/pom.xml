@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.javarush.lectures</groupId>
-    <artifactId>mvc_demo</artifactId>
+    <artifactId>Task_5</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mvc_demo</name>
     <description>mvc_demo</description>

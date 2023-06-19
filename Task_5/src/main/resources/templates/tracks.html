@@ -1,0 +1,8 @@
+<tr th: each = "group : ${groups}">
+    <td>
+        <a href="/groups/${group.id}/albums"><span th:text="${group.id}"></span></a>
+    </td>
+    <td>
+        <span th:text="${group.name}"></span>
+    </td>
+</tr>
