@@ -14,8 +14,8 @@ import java.io.IOException;
 @ComponentScan
 public class Main {
     public static void main(String[] args) throws Exception {
-        //AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
         //Object bean = context.getBean();
-        new Parser().loader();
+        //new Parser().loader();
     }
 }
