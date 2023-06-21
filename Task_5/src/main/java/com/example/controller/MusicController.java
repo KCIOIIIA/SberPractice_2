@@ -1,45 +1,50 @@
 package com.example.controller;
 
 import com.example.Group;
-import com.example.repository.MusicRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.example.Album;
+import com.example.Track;
+//import com.example.repository.MusicRepository;
+
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/groups")
 public class MusicController {
-
     public List<Group> groups = new ArrayList<>();
-    @Autowired
-    MusicRepository musicRepository;
 
-    @RequestMapping(value = "/groups")
-    public String groupsController(Model model) {
-        model.addAttribute("groups", groups);
-        return "groups";
-        //return musicRepository.save(groups)
+    //Показать все группы
+    @GetMapping("/")
+    public Group reqGroup(Group group) {
+        System.out.println(group.id + "   " + group.name);
+        groups.add(group);
+        return group;
     }
 
-
-  //  @GetMapping("/groups")
-   // @PostMapping("/groups/{groups.id}")
-
-    @RequestMapping(value = "/groups/albums")
-    public String albumsController(Model model) {
-        model.addAttribute("groups", groups);
-        return "albums";
+    //Показать все альбомы группы X
+    //@GetMapping("/@{group.Id}/albums")
+   // @GetMapping("/@{num}/albums")
+  //  public Album reqAlbum(@RequestParam Long num, Album album) {
+    @GetMapping("/X/albums")
+    public Album reqAlbum(Album album) {
+        System.out.println(album.id + "   " + album.name + "   " + album.year);
+       // for (int i = 0; i < groups.size(); i++){
+      //      if (groups.get(i).id.equals(num)){
+      //          groups.get(i).album.add(album);
+     //       }
+      //  }
+        return album;
     }
-    @RequestMapping(value = "/groups/albums/tracks")
-    public String tracksController(Model model) {
-        model.addAttribute("groups", groups);
-        return "tracks";
+
+    //Показать все треки альбома Y группы X
+    //@GetMapping("/@{group.Id}/albums/@{album.Id}/tracks")
+    @GetMapping("/X/albums/Y/tracks")
+    public Track reqTrack(Track track) {
+        System.out.println(track.id + "   " + track.name + "   " + track.duration);
+        //groups.get(X).albums.get(Y).tracks.add(track);
+        return track;
     }
 
 }

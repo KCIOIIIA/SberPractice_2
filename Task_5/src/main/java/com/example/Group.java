@@ -1,40 +1,35 @@
 package com.example;
 
 import com.example.Album;
-import javax.persistence.*;
+//import javax.persistence.*;
 
 import java.util.List;
-@Entity
-@Table(name = "group")
+//@Entity
+//@Table(name = "group")
 public class Group {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public String Name;
-    public String Id;
-    public List<Album> albums;
+    //@Id
+   // @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
+    public String name;
+    public List<Album> album;
 
-    public Group(String Name, String Id, List <Album> albums){
-        this.Name = Name;
-        this.Id = Id;
-        this.albums = albums;
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setId(Long id) {
+        this.id = id;
     }
     public void setAlbum(List<Album> albums) {
-        this.albums = albums;
+        this.album = album;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
-    public String getId() {
-        return Id;
+    public Long getId() {
+        return id;
     }
     public List<Album> getAlbum() {
-        return albums;
+        return album;
     }
 }

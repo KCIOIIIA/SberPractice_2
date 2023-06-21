@@ -1,36 +1,29 @@
 package com.example;
-import javax.persistence.*;
-@Entity
-@Table(name = "track")
+import jakarta.persistence.*;
+//@Entity
+//@Table(name = "track")
 public class Track {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public String Name;
-    public String Id;
-    public String Duration;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    public Long id;
+    public String name;
+    public String duration;
 
-    public Track(String Name, String Id, String Duration){
-        this.Name = Name;
-        this.Id = Id;
-        this.Duration = Duration;
+    public void setId(Long id) { this.id = id;
     }
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
-    public void setDuration(String Duration) {
-        this.Duration = Duration;
-    }
-
     public String getName() {
-        return Name;
+        return name;
     }
-    public String getId() {
-        return Id;
+    public Long getId() {
+        return id;
     }
     public String getDuration() {
-        return Duration;
+        return duration;
     }
 }
