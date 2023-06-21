@@ -1,21 +1,27 @@
 package Task_4;
-import org.springframework.boot.autoconfigure.web.reactive.HttpHandlerAutoConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-@Configuration
-@ComponentScan
 public class Main {
+    @Autowired
+    public Parser parser;
+    @Autowired
+    public Analyzer analyzer;
+    @Autowired
+    public ReportBuilder reportBuilder;
+    public void exec() throws FileNotFoundException {
+        ArrayList<String> Array = new ArrayList();
+        //Scanner s = parser.Load();
+        //ArrayList<String> Arr = parser.Next(s, Array);
+        //ArrayList res = analyzer.Count(Arr);
+        //reportBuilder.build(res);
+    }
     public static void main(String[] args) throws Exception {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
-        //Object bean = context.getBean();
-        //new Parser().loader();
+        context.getBean(Main.class).exec();
     }
 }

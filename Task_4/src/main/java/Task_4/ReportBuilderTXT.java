@@ -4,10 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Print implements ReportBuilder{
+public class ReportBuilderTXT implements ReportBuilder{
     private static final String FILE_PATH = "C:\\SberPractice_2\\Task_4\\src\\main\\java\\Task_4";
 
-    public Print(ArrayList arr){
+    public void build(ArrayList arr){
 
         Scanner in = new Scanner(System.in);
         System.out.println("Введите название выходного файла (с расширением): ");

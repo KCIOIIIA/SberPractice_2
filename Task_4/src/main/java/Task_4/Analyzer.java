@@ -8,4 +8,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public interface Analyzer {
+    public ArrayList Count(ArrayList<String> arr);
+    void exec() throws FileNotFoundException;
 }
