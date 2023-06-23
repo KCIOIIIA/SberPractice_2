@@ -2,6 +2,7 @@ package com.example;
 //import javax.persistence.*;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 //@Entity
 //@Table(name = "album")
@@ -12,6 +13,10 @@ public class Album {
     public String name;
     public String year;
     public List<Track> tracks;
+
+    public Album() {
+        tracks = new ArrayList<>();
+    }
 
     public void setName(String name) {
         this.name = name;
