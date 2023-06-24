@@ -2,11 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Track page</title></head>
+    <title>Track page</title>
     <style>
         body {background-color: #958B9B}
     </style>
+</head>
 <body>
 <h2 align="center">Choose a track</h2>
+<table th:if="${not #lists.isEmpty(group)}">
+    <tr th:each="gr : ${group}">
+        <td>
+            <span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.duration}"></span>
+        </td>
+    </tr>
+</table>
+<table th:if="${#lists.isEmpty(group)}">
+    <p>No tracks were found :(</p>
+</table>
 </body>
 </html>

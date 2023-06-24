@@ -9,5 +9,16 @@
 </head>
 <body>
 <h2 align="center">Choose a group</h2>
+<table th:if="${not #lists.isEmpty(groups)}">
+    <tr th:each="gr : ${groups}">
+        <td>
+            <a th:href="@{/groups/{grId}/albums(grId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name}"></span></a>
+        </td>
+    </tr>
+</table>
+<table th:if="${#lists.isEmpty(groups)}">
+    <p>No groups were found :(</p>
+</table>
+
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.example;
 
-import com.example.Album;
 //import javax.persistence.*;
 
 import java.util.ArrayList;
@@ -13,6 +12,11 @@ public class Group {
     public Long id;
     public String name;
     public List<Album> album;
+
+    public Group(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Group() {
         album = new ArrayList<>();

@@ -13,6 +13,13 @@ public class Album {
     public String name;
     public String year;
     public List<Track> tracks;
+    public Long groupId;
+
+    public Album(Long id, String name, String year) {
+        this.id = id;
+        this.name = name;
+        this.year = year;
+    }
 
     public Album() {
         tracks = new ArrayList<>();
@@ -30,6 +37,9 @@ public class Album {
     public void setTrack(List<Track> tracks) {
         this.tracks = tracks;
     }
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
     public String getName() {
         return name;
    }
@@ -41,5 +51,8 @@ public class Album {
     }
     public List<Track> getTracks() {
         return tracks;
+    }
+    public Long getGroupId() {
+        return groupId;
     }
 }
