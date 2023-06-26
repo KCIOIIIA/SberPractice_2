@@ -35,7 +35,7 @@ public class Group {
     public String getName() {
         return name;
     }
-    public Long getId() {
+    public Long getId(long g) {
         return id;
     }
     public List<Album> getAlbum() {

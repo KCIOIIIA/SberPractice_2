@@ -8,6 +8,8 @@ public class Track {
     public Long id;
     public String name;
     public String duration;
+    public Long groupId;
+    public Long albumId;
 
     public void setId(Long id) { this.id = id;
     }

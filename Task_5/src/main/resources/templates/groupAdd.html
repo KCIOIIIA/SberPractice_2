@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Group page</title>
+  <style>
+    body {background-color: #E1D6E7}
+    a { color:#000000; text-decoration:none;}
+  </style>
+</head>
+<body>
+<br><br><br><br>
+<form align="center" method="POST", action="/groups/add">
+  <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
+  <button type="submit" class="btn btn-light">Add a group</button>
+</form>
+<br><br><br><br>
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/groups}">Show all groups</a></button></p>
+</body>
+</html>

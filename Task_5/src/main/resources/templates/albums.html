@@ -5,19 +5,22 @@
     <title>Album page</title>
     <style>
         body {background-color: #DECFE7}
+        a { color:#000000; text-decoration:none;}
     </style>
 </head>
 <body>
+
 <h2 align="center">Choose an album</h2>
 <table th:if="${not #lists.isEmpty(group)}">
     <tr th:each="gr : ${group}">
         <td>
-            <a th:href="@{/groups/{grId}/albums/{alId}/tracks(grId = ${gr.id}, alId = ${gr.groupId})}"><span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.year}"></span></a>
+            <a th:href="@{/groups/{grId}/albums/{alId}/tracks/add(grId = ${gr.groupId}, alId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.year}"></span></a>
         </td>
     </tr>
 </table>
-<table th:if="${#lists.isEmpty(group)}">
-    <p>No albums were found :(</p>
-</table>
+<br>
+
+<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/groups/{alId}/albums/add(alId = ${album.groupId})}">Add a new album</a></button></p>
+
 </body>
 </html>
