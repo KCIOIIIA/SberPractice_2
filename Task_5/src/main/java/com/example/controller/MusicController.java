@@ -1,23 +1,68 @@
 package com.example.controller;
 
-import com.example.Group;
-import com.example.Album;
-import com.example.Track;
-//import com.example.repository.MusicRepository;
+import com.example.models.Group;
+import com.example.models.Album;
+import com.example.models.Track;
 
+import com.example.repository.AlbumRepository;
+import com.example.repository.GroupRepository;
+import com.example.repository.TrackRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-//@RestController
-@Controller
+@RestController
+//@Controller
 public class MusicController {
-    public List<Group> groups = new ArrayList<>();
-    public long g = 0;
+    //public List<Group> groups = new ArrayList<>();
 
-    //Показать все группы
+    //TRACKS
+    @Autowired
+    TrackRepository trackRepository;
+
+    @GetMapping("/getTrack")
+    public List<Track> getTrack(){
+        return trackRepository.findAll();
+    }
+    @PostMapping("/addTrack")
+    public Track addTrack(@RequestBody Track track){
+        System.out.println(track.getId() + "   " + track.getName() +
+                "   " + track.getDuration());
+        trackRepository.save(track);
+        return track;
+    }
+    @DeleteMapping("/deleteTrack")
+    public void deleteTrack(@RequestBody Track track){
+        System.out.println(track.getId() + "   " + track.getName() +
+                "   " + track.getDuration());
+        trackRepository.delete(track);
+    }
+
+    //ALBUMS
+    @Autowired
+    AlbumRepository albumRepository;
+
+    @GetMapping("/getAlbum")
+    public List<Album> getAlbum(){
+        return albumRepository.findAll();
+    }
+    @PostMapping("/addAlbum")
+    public Album addAlbum(@RequestBody Album album){
+        System.out.println(album.getId() + "   " + album.getName() +
+                "   " + album.getYear() + "   " + album.getTracks());
+        albumRepository.save(album);
+        return album;
+    }
+    @DeleteMapping("/deleteAlbum")
+    public void deleteAlbum(@RequestBody Album album){
+        System.out.println(album.getId() + "   " + album.getName() +
+                "   " + album.getYear() + "   " + album.getTracks());
+        albumRepository.delete(album);
+    }
+/*
     @GetMapping("/groups")
     public String getGroup(Model model){
         model.addAttribute("groups", groups);
@@ -47,7 +92,7 @@ public class MusicController {
             if (groups.get(i).id.equals(id0)){
                 group = groups.get(i);
                 model.addAttribute("group", group.album);
-                model.addAttribute("album", group.album.get(0));
+                model.addAttribute("id0", id0);
             }
         }
         return "albums";
@@ -70,6 +115,7 @@ public class MusicController {
                 Group group = groups.get(i);
                 group.album.add(album);
                 model.addAttribute("group", album);
+                model.addAttribute("id0", id0);
             }
         }
         return "albumAdd";
@@ -89,7 +135,8 @@ public class MusicController {
             if (group.album.get(i).id.equals(id1)){
                 album = group.album.get(i);
                 model.addAttribute("group", album.tracks);
-                model.addAttribute("album", album.tracks.get(0));
+                model.addAttribute("id0", id0);
+                model.addAttribute("id1", id1);
             }
         }
         return "tracks";
@@ -107,8 +154,6 @@ public class MusicController {
         track.id = (long) groups.get((int) id0).album.get((int) id1).tracks.size();
         track.setName(name);
         track.setDuration(duration);
-        track.groupId = id0;
-        track.albumId = id1;
         System.out.println(track.id + "   " + track.name + "   " + track.duration);
         for (int i = 0; i < g; i++){
             if (groups.get(i).id.equals(id0)){
@@ -118,9 +163,12 @@ public class MusicController {
                         Album album = group.album.get(j);
                         album.tracks.add(track);
                         model.addAttribute("group", track);
+                        model.addAttribute("id0", id0);
+                        model.addAttribute("id1", id1);
                     }
                 }
             }
         } return "trackAdd";
     }
+ */
 }

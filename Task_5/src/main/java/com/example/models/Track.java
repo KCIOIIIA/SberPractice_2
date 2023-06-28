@@ -1,18 +1,21 @@
-package com.example;
+package com.example.models;
 import jakarta.persistence.*;
-//@Entity
-//@Table(name = "track")
+@Entity
+@Table(name = "TRACK")
 public class Track {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
-    public String name;
-    public String duration;
-    public Long groupId;
-    public Long albumId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name="name")
+    private String name;
+    @Column(name="duration")
+    private String duration;
 
-    public void setId(Long id) { this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "Album_id")
+    public Album album;
+
+    public void setId(Long id) { this.id = id;}
     public void setName(String name) {
         this.name = name;
     }
@@ -28,4 +31,5 @@ public class Track {
     public String getDuration() {
         return duration;
     }
+
 }
