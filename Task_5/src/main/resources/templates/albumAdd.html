@@ -12,16 +12,12 @@
 <br><br><br><br>
 <form align="center" method="POST">
   <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
-  <input name="year" type="text" id="year" class="form-control" placeholder="Year"/>
+  <input name="years" type="text" id="years" class="form-control" placeholder="Years"/>
   <button type="submit" class="btn btn-light">Add an album</button>
 </form>
 <br><br><br><br>
-<table align="center">
-  <tr th:each="gr : ${group}">
-    <td>
-      <p><button type="submit" class="btn btn-light"> <a th:href="@{/groups/{grId}/albums(grId = ${gr.groupId})}">Show all albums</a></button></p>
-    </td>
-  </tr>
-</table>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/groups/{grId}/albums(grId = ${id0})}">Show all albums</a></button></p>
+
 </body>
 </html>

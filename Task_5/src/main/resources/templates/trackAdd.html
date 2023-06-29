@@ -16,13 +16,8 @@
   <button type="submit" class="btn btn-light">Add a track</button>
 </form>
 <br><br><br><br>
-<table align="center">
-  <tr th:each="gr : ${group}">
-    <td>
-      <p><button type="submit" class="btn btn-light"> <a th:href="@{/groups/{grId}/albums/{alId}/tracks(grId = ${gr.groupId}, alId = ${gr.albumId})}">Show all tracks</a></button></p>
-    </td>
-  </tr>
-</table>
+
+<p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/groups/{grId}/albums/{alId}/tracks(grId = ${id0}, alId = ${id1})}">Show all tracks</a></button></p>
 
 </body>
 </html>

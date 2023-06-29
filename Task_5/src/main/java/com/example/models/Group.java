@@ -4,38 +4,32 @@ import com.example.repository.AlbumRepository;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-/*
-@Entity
-@Table(name = "GROUP")
+import java.util.Set;
 
- */
+@Entity
+@Table(name = "PC_GROUP")
+
 public class Group {
-    /*
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
-    public String name;
-    //public List<Album> album;
+    private Long id;
+    private String name;
+    @OneToMany(mappedBy = "group",cascade = CascadeType.ALL)
+    private Set<Album> albums = new HashSet<>();
     public Group(){}
+
+    public void setId(Long id) {this.id = id;}
+    public Long getId() {return id;}
     public void setName(String name) {
         this.name = name;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
-    //public void setAlbum(List<Album> albums) { this.album = album; }
-
     public String getName() {
         return name;
     }
-    public Long getId(long g) {
-        return id;
-    }
-    //public List<Album> getAlbum() { return album; }
-    public Long getId() {
-        return id;
-    }
+    public void setAlbum(Set<Album> albums) { this.albums = albums; }
+    public Set<Album> getAlbum() { return albums; }
 
-     */
+
 }

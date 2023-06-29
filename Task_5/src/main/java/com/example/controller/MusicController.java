@@ -14,11 +14,77 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@RestController
-//@Controller
+//@RestController
+@Controller
 public class MusicController {
-    //public List<Group> groups = new ArrayList<>();
 
+    @Autowired
+    GroupRepository groupRepository;
+
+    //ГРУППЫ
+    @GetMapping("/groups")
+    public String getGroup(Model model){
+        model.addAttribute("groups", groupRepository.findAll());
+        return "groups";
+    }
+    @GetMapping("/groups/add")
+    public String crGroup(){
+        return "groupAdd";
+    }
+    @PostMapping("/groups/add")
+    public String createGroup(@RequestParam("name") String name, Model model){
+        Group group = new Group();
+        group.setName(name);
+        model.addAttribute("group", group);
+        System.out.println(group.getId() + "   " + group.getName());
+        groupRepository.save(group);
+        return "groupAdd";
+    }
+
+    @Autowired
+    AlbumRepository albumRepository;
+
+    //АЛЬБОМЫ
+    @GetMapping("/groups/{id0}/albums")
+    public String getAlbum(@PathVariable long id0, Model model) {
+        Optional<Group> group = Optional.of(new Group());
+        group = groupRepository.findById(id0);
+        System.out.println(group.get().getName());
+        model.addAttribute("group", group.get().getAlbum());
+        model.addAttribute("id0", id0);
+        return "albums";
+    }
+
+    @GetMapping("/groups/{id0}/albums/add")
+    public String crAlbum(@PathVariable long id0) {
+        return "albumAdd";
+    }
+    @PostMapping("/groups/{id0}/albums/add")
+    public String addAlbum(@PathVariable long id0, @RequestParam("name") String name,
+                           @RequestParam("years") String years, Model model) {
+
+        System.out.println("id0 = " + id0);
+
+        Optional<Group> group = groupRepository.findById(id0);
+        System.out.println("group.name = " + group.get().getName());
+
+        Album album = new Album();
+        album.setName(name);
+        album.setYears(years);
+        System.out.println(album.getId() + "   " + album.getName() + "   " +
+                album.getYears() + "   " + album.getTracks());
+
+        albumRepository.save(album);
+       // groupRepository.save()        Как сохранить новый альбом, чтобы он отображался в группах?
+        System.out.println("group.album = " + group.get().getAlbum());
+        model.addAttribute("group", album);
+        model.addAttribute("id0", id0);
+        return "albumAdd";
+    }
+
+
+
+/*
     //TRACKS
     @Autowired
     TrackRepository trackRepository;
@@ -62,6 +128,9 @@ public class MusicController {
                 "   " + album.getYear() + "   " + album.getTracks());
         albumRepository.delete(album);
     }
+
+ */
+
 /*
     @GetMapping("/groups")
     public String getGroup(Model model){

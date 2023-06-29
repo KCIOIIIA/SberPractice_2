@@ -14,13 +14,13 @@
 <table th:if="${not #lists.isEmpty(group)}">
     <tr th:each="gr : ${group}">
         <td>
-            <a th:href="@{/groups/{grId}/albums/{alId}/tracks/add(grId = ${gr.groupId}, alId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.year}"></span></a>
+            <a th:href="@{/groups/{grId}/albums/{alId}/tracks(grId = ${gr.gr.id}, alId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.years}"></span></a>
         </td>
     </tr>
 </table>
 <br>
 
-<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/groups/{alId}/albums/add(alId = ${album.groupId})}">Add a new album</a></button></p>
+<p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/groups/{alId}/albums/add(alId = ${id0})}">Add a new album</a></button></p>
 
 </body>
 </html>
