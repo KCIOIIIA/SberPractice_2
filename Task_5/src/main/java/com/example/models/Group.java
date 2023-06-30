@@ -20,6 +20,18 @@ public class Group {
     private Set<Album> albums = new HashSet<>();
     public Group(){}
 
+    public Group(String name){
+        this.name = name;
+    }
+
+    public void addAlbum(Album album){
+        albums.add(album);
+        album.setGroup(this);
+    }
+    public void removeAlbum(Album album){
+        albums.remove(album);
+        album.setGroup(null);
+    }
     public void setId(Long id) {this.id = id;}
     public Long getId() {return id;}
     public void setName(String name) {

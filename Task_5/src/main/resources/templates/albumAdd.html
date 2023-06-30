@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Album page</title>
@@ -10,7 +11,7 @@
 </head>
 <body>
 <br><br><br><br>
-<form align="center" method="POST">
+<form th:action="@{/groups/{groupId}/albums/add(groupId=${id0})}" align="center" method="POST">
   <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
   <input name="years" type="text" id="years" class="form-control" placeholder="Years"/>
   <button type="submit" class="btn btn-light">Add an album</button>

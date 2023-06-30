@@ -14,7 +14,7 @@
 <table th:if="${not #lists.isEmpty(group)}">
     <tr th:each="gr : ${group}">
         <td>
-            <a th:href="@{/groups/{grId}/albums/{alId}/tracks(grId = ${gr.gr.id}, alId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.years}"></span></a>
+            <a th:href="@{/groups/{grId}/albums/{alId}/tracks(grId = ${id0}, alId = ${gr.getId()})}"><span th:text="${gr.id + ') ' + gr.name + ' - ' + gr.years}"></span></a>
         </td>
     </tr>
 </table>

@@ -1,6 +1,6 @@
 package com.example.models;
 import jakarta.persistence.*;
-import com.example.models.Track;
+
 import java.util.HashSet;
 import java.util.Set;
 @Entity
@@ -14,14 +14,25 @@ public class Album {
     @Column(name="years")
     private String years;
 
-    @ManyToOne
-    @JoinColumn(name = "Group_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "Group_id")
     private Group group;
     @OneToMany(mappedBy = "album",cascade = CascadeType.ALL)
     private Set<Track> tracks = new HashSet<>();
 
+    public Album(){}
 
-    public Album() {}
+
+    public Album(String name) {}
+
+    public void addTrack(Track track){
+        tracks.add(track);
+        track.setAlbum(this);
+    }
+    public void removeTrack(Track track){
+        tracks.remove(track);
+        track.setAlbum(null);
+    }
     public void setId(Long id) {this.id = id;}
     public Long getId() {return id;}
     public void setName(String name) {this.name = name;}
