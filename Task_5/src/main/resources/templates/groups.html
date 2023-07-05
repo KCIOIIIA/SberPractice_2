@@ -6,20 +6,30 @@
     <style>
         body {background-color: #E1D6E7}
         a { color:#000000; text-decoration:none;}
+        .center{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-<form method="GET", action="/groups">
+<form align="center" method="GET" th:action="@{/groups}">
 <h2 align="center">Choose a group</h2>
 <table th:if="${not #lists.isEmpty(groups)}">
     <tr th:each="gr : ${groups}">
         <td>
-            <a th:href="@{/groups/{grId}/albums/add(grId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name}"></span></a>
+            <a th:href="@{/groups/{grId}/albums(grId = ${gr.id})}"><span th:text="${gr.id + ') ' + gr.name}"></span></a>
         </td>
     </tr>
 </table>
 </form>
 <br>
 <p align="center"><button type="submit" class="btn btn-light"> <a th:href="@{/groups/add}">Add a new group</a></button></p>
+
+<br>
+<div class="center">
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</div>
 </body>
 </html>

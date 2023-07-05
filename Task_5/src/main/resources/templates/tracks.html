@@ -6,6 +6,9 @@
     <style>
         body {background-color: #958B9B}
         a { color:#000000; text-decoration:none;}
+         .center{
+             text-align: center;
+         }
     </style>
 </head>
 <body>
@@ -20,6 +23,10 @@
 <br>
 
 <p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/groups/{grId}/albums/{alId}/tracks/add(grId = ${id0}, alId = ${id1})}">Add a new track</a></button></p>
-
+<div class="center">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 </body>
 </html>

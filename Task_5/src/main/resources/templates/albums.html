@@ -6,6 +6,9 @@
     <style>
         body {background-color: #DECFE7}
         a { color:#000000; text-decoration:none;}
+        .center{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -21,6 +24,10 @@
 <br>
 
 <p align="center"><button type="submit" class="btn btn-light"><a th:href="@{/groups/{alId}/albums/add(alId = ${id0})}">Add a new album</a></button></p>
-
+<div class="center">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 </body>
 </html>

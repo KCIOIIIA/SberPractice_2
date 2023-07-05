@@ -38,6 +38,7 @@ public class MusicController {
     }
     @PostMapping("/groups/add")
     public String createGroup(@RequestParam("name") String name, Model model){
+        System.out.println("Я тут");
         Group group = new Group();
         group.setName(name);
         model.addAttribute("group", group);
@@ -51,10 +52,10 @@ public class MusicController {
     public String getAlbum(@PathVariable long id0, Model model) {
         Optional<Group> group = groupRepository.findById(id0);
         System.out.println(group.get().getName());
-        Optional<Album> album = albumRepository.findById(id0);
-        System.out.println(album.get().getName());
-        model.addAttribute("group", group.get().getAlbum());
-        model.addAttribute("id0", id0);
+        if (!group.get().getAlbum().isEmpty()) {
+            model.addAttribute("group", group.get().getAlbum());
+            model.addAttribute("id0", id0);
+        }
         return "albums";
     }
 
@@ -83,7 +84,7 @@ public class MusicController {
     public String getTrack(@PathVariable long id0, @PathVariable long id1, Model model) {
         Optional<Group> group = groupRepository.findById(id0);
         System.out.println(group.get().getName());
-        Optional<Album> album = albumRepository.findById(id0);
+        Optional<Album> album = albumRepository.findById(id1);
         System.out.println(album.get().getName());
         model.addAttribute("group", album.get().getTracks());
         model.addAttribute("id0", id0);
@@ -98,7 +99,7 @@ public class MusicController {
     public String addTrack(@PathVariable long id0, @PathVariable long id1, @RequestParam("name") String name,
                            @RequestParam("duration") String duration, Model model) {
         Optional<Group> groupOptional = groupRepository.findById(id0);
-        Optional<Album> albumOptional = albumRepository.findById(id0);
+        Optional<Album> albumOptional = albumRepository.findById(id1);
         System.out.println(name + " " + duration);
         if (groupOptional.isPresent()){
             Group group = groupOptional.get();

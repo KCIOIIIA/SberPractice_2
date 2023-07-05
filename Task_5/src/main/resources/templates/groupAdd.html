@@ -10,7 +10,7 @@
 </head>
 <body>
 <br><br><br><br>
-<form align="center" method="POST", action="/groups/add">
+<form align="center" method="POST" th:action="@{/groups/add}">
   <input name="name" type="text" id="name" class="form-control" placeholder="Name"/>
   <button type="submit" class="btn btn-light">Add a group</button>
 </form>
